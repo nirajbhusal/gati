@@ -14,10 +14,10 @@ Gati is a premium, web-first daily instrument for Nepalis:
 - **Digital Cheena** (birth chart) + cosmic planet profile  
 - **Daily Astro Advisor** (calm, bilingual)  
 - **Manifest** (intention wishlist with muhurat hints)  
-- **Trust** (fact-check checklist + official sources)  
+- **Trust** (cosmic confidence · graha-gati & timekeeping)  
 - Festivals, utilities, customizable home  
 
-**Vision:** Beat Hamro Patro / Nepali Patro on calm UX; clearer than Yodha on daily astro; own trust + intention no competitor packages together.
+**Vision:** Beat Hamro Patro / Nepali Patro on calm UX; clearer than Yodha on daily astro; own cosmic Trust + Manifest intention no competitor packages together.
 
 **Name meaning:** Sanskrit/Nepali *gati* = motion; *graha-gati* = celestial motion behind BS calendars, tithi, and seasons.
 
@@ -32,7 +32,7 @@ Gati is a premium, web-first daily instrument for Nepalis:
 | **Cheena** | Create/view North-Indian chart, Navagraha table, Lahiri sidereal v1 |
 | **Astro** | Daily Focus / Caution / Favorable / Intention |
 | **Manifest** | Plant → growing → fulfilled / released |
-| **Trust** | Claim checklist + NDRRMA/DHM/Police/etc. directory |
+| **Trust** | Daily विश्वास, brand pillars, how Gati keeps time |
 | **More** | Manifest, Trust, Utilities, Profile, Settings, About |
 | **Settings** | Theme, text size, widget layout |
 
@@ -51,7 +51,7 @@ Gati is a premium, web-first daily instrument for Nepalis:
 /cheena/new       Birth wizard
 /astro            Daily advisor
 /manifest         Intentions
-/trust            Fact-check hub
+/trust            Cosmic confidence (विश्वास)
 /more             Overflow nav
 /profile          Cosmic profile
 /tools            Utilities

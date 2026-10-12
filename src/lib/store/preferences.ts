@@ -45,9 +45,9 @@ export const WIDGET_META: Record<
     description: "Intentions wishlist",
   },
   "trust-tip": {
-    title: "Trust tip",
+    title: "Trust",
     titleNp: "विश्वास",
-    description: "Before you share",
+    description: "Cosmic confidence",
   },
   "quick-tools": {
     title: "Utilities",

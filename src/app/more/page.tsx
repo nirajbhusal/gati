@@ -2,8 +2,8 @@ import Link from "next/link";
 import {
   Bookmark,
   Info,
+  Orbit,
   Settings,
-  ShieldCheck,
   Sparkles,
   User,
   Wrench,
@@ -12,7 +12,7 @@ import { Card } from "@/components/ui/Card";
 
 const LINKS = [
   { href: "/manifest/", label: "Manifest", labelNp: "इच्छा", icon: Bookmark, desc: "Digital wishlist of intentions" },
-  { href: "/trust/", label: "Trust", labelNp: "विश्वास", icon: ShieldCheck, desc: "Fact-check before you share" },
+  { href: "/trust/", label: "Trust", labelNp: "विश्वास", icon: Orbit, desc: "Confidence in time & cosmos" },
   { href: "/tools/", label: "Utilities", labelNp: "उपकरण", icon: Wrench, desc: "BS ↔ AD and helpers" },
   { href: "/festivals/", label: "Festivals", labelNp: "चाडपर्व", icon: Sparkles, desc: "Upcoming holidays" },
   { href: "/profile/", label: "Profile", labelNp: "प्रोफाइल", icon: User, desc: "Cosmic identity" },
