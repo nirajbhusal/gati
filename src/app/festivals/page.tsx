@@ -5,6 +5,7 @@ import {
   FestivalCountdownCard,
   FestivalRow,
 } from "@/components/festivals/FestivalList";
+import { DashainTeaser } from "@/components/dashain/DashainTeaser";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { getUpcomingFestivals } from "@/lib/calendar";
@@ -26,6 +27,8 @@ export default function FestivalsPage() {
           Upcoming cultural festivals, national holidays, and observances.
         </p>
       </header>
+
+      <DashainTeaser />
 
       <div className="grid gap-5 lg:grid-cols-3">
         <div className="lg:col-span-1">

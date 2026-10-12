@@ -33,7 +33,8 @@ Gati is a premium, web-first daily instrument for Nepalis:
 | **Astro** | Ask Astro oracle + Daily Focus / Caution / Favorable / Intention |
 | **Manifest** | Plant → growing → fulfilled / released |
 | **Trust** | Daily विश्वास, brand pillars, how Gati keeps time |
-| **More** | Manifest, Trust, Utilities, Profile, Settings, About |
+| **Dashain** | Full 15-day Bada Dashain timeline (rituals, foods, vibes) |
+| **More** | Dashain, Ask Astro, Manifest, Trust, Utilities, Profile, Settings, About |
 | **Settings** | Theme, text size, widget layout |
 
 ### Weekend rule (Nepal)

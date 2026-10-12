@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { GatiLogo } from "@/components/brand/GatiLogo";
 import { YearProgressBar } from "@/components/calendar/YearProgress";
+import { DashainTeaser } from "@/components/dashain/DashainTeaser";
 import { ProfileGreeting } from "@/components/home/ProfileGreeting";
 import { WidgetGrid } from "@/components/home/WidgetGrid";
 import { Card } from "@/components/ui/Card";
@@ -41,13 +42,14 @@ export default function HomePage() {
               </span>
             </p>
             <p className="mt-1.5 text-xs text-[var(--fg-subtle)] sm:text-sm">
-              Patro · Cheena · Astro · Manifest · Trust
+              Patro · Cheena · Astro · Dashain · Manifest · Trust
             </p>
           </div>
         </div>
       </section>
 
       <ProfileGreeting />
+      <DashainTeaser />
 
       <YearProgressBar compact />
 

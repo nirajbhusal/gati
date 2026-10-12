@@ -514,3 +514,15 @@ body {
     animation: none !important;
   }
 }
+
+/* —— Dashain —— */
+.dashain-hero {
+  min-height: 230px;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #c45c26 22%, transparent),
+    0 28px 56px -30px color-mix(in srgb, #c45c26 50%, transparent);
+}
+
+.dashain-rail {
+  scrollbar-width: thin;
+}
