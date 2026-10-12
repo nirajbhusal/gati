@@ -1,6 +1,16 @@
 /* Gati service worker — cache shell for offline-friendly navigation */
-const CACHE = "gati-v1";
-const PRECACHE = ["/", "/calendar", "/festivals", "/today", "/tools", "/settings", "/manifest.webmanifest"];
+const CACHE = "gati-v2";
+const BASE = self.location.pathname.replace(/\/[^/]*$/, "") || "";
+const path = (p) => `${BASE}${p}`;
+const PRECACHE = [
+  "/",
+  "/calendar/",
+  "/festivals/",
+  "/today/",
+  "/tools/",
+  "/settings/",
+  "/manifest.webmanifest",
+].map(path);
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

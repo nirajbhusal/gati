@@ -11,7 +11,8 @@ export function ServiceWorkerRegister() {
     if (proto === "capacitor:" || proto === "ionic:" || proto === "file:") return;
     const w = window as Window & { Capacitor?: { isNativePlatform?: () => boolean } };
     if (w.Capacitor?.isNativePlatform?.()) return;
-    navigator.serviceWorker.register("/sw.js").catch(() => {
+    const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+    navigator.serviceWorker.register(`${base}/sw.js`).catch(() => {
       /* ignore SW errors in dev-like hosts */
     });
   }, []);
