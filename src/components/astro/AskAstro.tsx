@@ -22,7 +22,13 @@ import { cn } from "@/lib/utils/cn";
 
 type Phase = "idle" | "reading" | "revealed";
 
-export function AskAstro({ embedded = false }: { embedded?: boolean }) {
+export function AskAstro({
+  embedded = false,
+  compact = false,
+}: {
+  embedded?: boolean;
+  compact?: boolean;
+}) {
   const profile = useProfile((s) => s.profile);
   const charts = useCheenaStore((s) => s.charts);
   const cheena =
@@ -84,8 +90,8 @@ export function AskAstro({ embedded = false }: { embedded?: boolean }) {
   };
 
   return (
-    <div className={cn("space-y-5", !embedded && "mx-auto max-w-2xl")}>
-      {/* Hero */}
+    <div className={cn("space-y-5", !embedded && !compact && "mx-auto max-w-2xl")}>
+      {!compact && (
       <section className="ask-hero relative overflow-hidden rounded-3xl border border-[var(--border)]">
         <div className="absolute inset-0">
           <Image
@@ -130,6 +136,7 @@ export function AskAstro({ embedded = false }: { embedded?: boolean }) {
           </p>
         </div>
       </section>
+      )}
 
       {showHistory && (
         <Card glass className="space-y-3">

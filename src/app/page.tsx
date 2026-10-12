@@ -1,55 +1,46 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { GatiLogo } from "@/components/brand/GatiLogo";
+import { GatiMascot } from "@/components/brand/GatiMascot";
 import { YearProgressBar } from "@/components/calendar/YearProgress";
-import { DashainTeaser } from "@/components/dashain/DashainTeaser";
+import { DashainHomeCard } from "@/components/dashain/DashainHomeCard";
 import { ProfileGreeting } from "@/components/home/ProfileGreeting";
 import { WidgetGrid } from "@/components/home/WidgetGrid";
+import { useAskGati } from "@/components/layout/AskGatiContext";
 import { Card } from "@/components/ui/Card";
 
 export default function HomePage() {
+  const { setOpen } = useAskGati();
   return (
-    <div className="space-y-4">
-      <section className="surface-glass relative overflow-hidden px-4 py-4 sm:px-5 sm:py-5">
-        <div
-          className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full opacity-40"
-          style={{
-            background:
-              "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
-          }}
-          aria-hidden
-        />
-        <div className="relative flex min-w-0 items-start gap-3 sm:items-center sm:gap-4">
-          <GatiLogo variant="mark" size={48} className="shrink-0 sm:hidden" />
-          <GatiLogo
-            variant="mark"
-            size={56}
-            className="hidden shrink-0 sm:block"
-          />
+    <div className="space-y-5">
+      <section className="home-hero relative overflow-hidden">
+        <div className="relative flex items-center gap-4">
+          <GatiMascot size={84} className="shrink-0" />
           <div className="min-w-0">
-            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-              <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                Gati
-              </h1>
-              <span className="np text-lg font-medium text-[var(--accent)] sm:text-xl">
-                गति
-              </span>
-            </div>
-            <p className="mt-0.5 text-sm text-[var(--fg-muted)] sm:text-base">
-              Move with time.{" "}
-              <span className="text-[var(--fg-subtle)]">
-                Understand the universe.
-              </span>
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[var(--fg-subtle)]">
+              Move with time
             </p>
-            <p className="mt-1.5 text-xs text-[var(--fg-subtle)] sm:text-sm">
-              Patro · Cheena · Astro · Dashain · Manifest · Trust
+            <h1 className="mt-1 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Gati{" "}
+              <span className="np text-[var(--accent)]">गति</span>
+            </h1>
+            <p className="mt-1 text-sm text-[var(--fg-muted)] sm:text-base">
+              Understand the universe — Patro, Dashain, Cheena, and the sky.
             </p>
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="mt-3 inline-flex items-center gap-2 rounded-full bg-[var(--accent-indigo)] px-4 py-2 text-sm font-medium text-white shadow-lg shadow-[color-mix(in_srgb,var(--accent-indigo)_35%,transparent)]"
+            >
+              Ask Gati
+            </button>
           </div>
         </div>
       </section>
 
       <ProfileGreeting />
-      <DashainTeaser />
+      <DashainHomeCard />
 
       <YearProgressBar compact />
 
