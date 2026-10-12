@@ -22,7 +22,7 @@ export function DashainHomeCard() {
         <div>
           <p className="inline-flex items-center gap-1.5 text-[0.65rem] font-medium uppercase tracking-[0.16em] text-[#f3d27a]">
             <Sprout className="h-3.5 w-3.5" aria-hidden />
-            Dashain vibes · दशैँ
+            Festivals · चाडपर्व
           </p>
           <h2 className="mt-1 text-xl font-semibold tracking-tight text-white sm:text-2xl">
             {focus.content.nameEn}{" "}
@@ -40,10 +40,10 @@ export function DashainHomeCard() {
           </p>
         </div>
         <Link
-          href="/dashain/"
+          href="/festivals/#bada-dashain"
           className="inline-flex items-center gap-1.5 rounded-full bg-[#c45c26] px-4 py-2 text-sm font-medium text-white shadow-lg shadow-[#c45c26]/30"
         >
-          Full timeline
+          Open festivals
           <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
@@ -52,7 +52,7 @@ export function DashainHomeCard() {
         {tl.days.map((d) => (
           <Link
             key={d.content.id}
-            href={`/dashain/#dashain-${d.content.id}`}
+            href={`/festivals/#dashain-${d.content.id}`}
             className={cn(
               "dashain-pill",
               d.isToday && "is-today",

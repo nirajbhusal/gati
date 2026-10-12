@@ -26,7 +26,7 @@ export default function HomePage() {
               <span className="np text-[var(--accent)]">गति</span>
             </h1>
             <p className="mt-1 text-sm text-[var(--fg-muted)] sm:text-base">
-              Understand the universe — Patro, Dashain, Cheena, and the sky.
+              Understand the universe — Patro, Festivals, Cheena, and the sky.
             </p>
             <button
               type="button"

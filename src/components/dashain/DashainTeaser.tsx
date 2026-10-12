@@ -26,7 +26,7 @@ export function DashainTeaser() {
         </span>
         <div className="min-w-0 flex-1">
           <p className="text-[0.65rem] font-medium uppercase tracking-[0.14em] text-[var(--fg-subtle)]">
-            Dashain vibes · दशैँ
+            Festivals · चाडपर्व
           </p>
           <p className="mt-1 text-sm font-semibold text-[var(--fg)]">
             {today ? "Today · " : next ? "Up next · " : ""}
@@ -43,7 +43,7 @@ export function DashainTeaser() {
             {focus.content.vibeEn}
           </p>
           <Link
-            href="/dashain/"
+            href="/festivals/#bada-dashain"
             className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-[#c45c26] hover:underline underline-offset-4"
           >
             Full 15-day timeline

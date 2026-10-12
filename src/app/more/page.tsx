@@ -5,7 +5,6 @@ import {
   Orbit,
   Settings,
   Sparkles,
-  Sprout,
   Stars,
   User,
   Wrench,
@@ -13,12 +12,11 @@ import {
 import { Card } from "@/components/ui/Card";
 
 const LINKS = [
-  { href: "/dashain/", label: "Dashain", labelNp: "दशैँ", icon: Sprout, desc: "Full 15-day timeline & vibes" },
   { href: "/astro/ask/", label: "Ask Astro", labelNp: "आकाश सोध्नुहोस्", icon: Stars, desc: "Illustrative cosmic readings" },
   { href: "/manifest/", label: "Manifest", labelNp: "इच्छा", icon: Bookmark, desc: "Digital wishlist of intentions" },
   { href: "/trust/", label: "Trust", labelNp: "विश्वास", icon: Orbit, desc: "Confidence in time & cosmos" },
   { href: "/tools/", label: "Utilities", labelNp: "उपकरण", icon: Wrench, desc: "BS ↔ AD and helpers" },
-  { href: "/festivals/", label: "Festivals", labelNp: "चाडपर्व", icon: Sparkles, desc: "Upcoming holidays" },
+  { href: "/festivals/", label: "Festivals", labelNp: "चाडपर्व", icon: Sparkles, desc: "Dashain timeline now · Tihar next" },
   { href: "/profile/", label: "Profile", labelNp: "प्रोफाइल", icon: User, desc: "Cosmic identity" },
   { href: "/settings/", label: "Settings", labelNp: "सेटिङ", icon: Settings, desc: "Theme, text, widgets" },
   { href: "/about/", label: "About", labelNp: "बारेमा", icon: Info, desc: "Gati story" },

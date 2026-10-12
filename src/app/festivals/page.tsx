@@ -5,7 +5,7 @@ import {
   FestivalCountdownCard,
   FestivalRow,
 } from "@/components/festivals/FestivalList";
-import { DashainTeaser } from "@/components/dashain/DashainTeaser";
+import { DashainTimeline } from "@/components/dashain/DashainTimeline";
 import { Card, CardHeader } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { getUpcomingFestivals } from "@/lib/calendar";
@@ -24,11 +24,19 @@ export default function FestivalsPage() {
           </span>
         </h1>
         <p className="text-sm text-[var(--fg-muted)] sm:text-base">
-          Upcoming cultural festivals, national holidays, and observances.
+          Festival timelines live here. Bada Dashain is first; Tihar will follow the same shape.
         </p>
       </header>
 
-      <DashainTeaser />
+      <section id="bada-dashain" className="scroll-mt-24 space-y-3">
+        <h2 className="text-lg font-semibold tracking-tight">
+          Bada Dashain{" "}
+          <span className="np text-base font-medium text-[var(--fg-muted)]">
+            बडादशैँ
+          </span>
+        </h2>
+        <DashainTimeline />
+      </section>
 
       <div className="grid gap-5 lg:grid-cols-3">
         <div className="lg:col-span-1">

@@ -14,7 +14,6 @@ import {
   Settings,
   ShieldCheck,
   Sparkles,
-  Sprout,
   Stars,
   SunMoon,
 } from "lucide-react";
@@ -32,7 +31,7 @@ import { cn } from "@/lib/utils/cn";
 const PRIMARY = [
   { href: "/", label: "Home", labelNp: "गृह", icon: Home },
   { href: "/calendar/", label: "Patro", labelNp: "पात्रो", icon: CalendarDays },
-  { href: "/dashain/", label: "Dashain", labelNp: "दशैँ", icon: Sprout },
+  { href: "/festivals/", label: "Festivals", labelNp: "चाडपर्व", icon: Sparkles },
   { href: "/cheena/", label: "Cheena", labelNp: "चिना", icon: Orbit },
   { href: "/more/", label: "More", labelNp: "थप", icon: LayoutGrid },
 ] as const;
@@ -41,7 +40,6 @@ const SIDE_EXTRA = [
   { href: "/astro/", label: "Astro", labelNp: "ज्योतिष", icon: Stars },
   { href: "/manifest/", label: "Manifest", labelNp: "इच्छा", icon: Bookmark },
   { href: "/trust/", label: "Trust", labelNp: "विश्वास", icon: ShieldCheck },
-  { href: "/festivals/", label: "Festivals", labelNp: "चाडपर्व", icon: Sparkles },
   { href: "/settings/", label: "Settings", labelNp: "सेटिङ", icon: Settings },
 ] as const;
 
