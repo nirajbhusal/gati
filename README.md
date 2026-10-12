@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gati (गति)
 
-## Getting Started
+**Move with time. Understand the universe.**
 
-First, run the development server:
+Premium Nepali Patro (calendar) progressive web app — Bikram Sambat dual calendar, panchang, festivals, and essential tools.
+
+## Quick start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build && npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Mobile (Android / iOS)
 
-## Learn More
+Capacitor wrappers around the static web build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run mobile:android   # → dist-mobile/*.apk + *.aab
+npm run mobile:ios       # opens Xcode (requires full Xcode for App Store IPA)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| File | Use |
+|------|-----|
+| `dist-mobile/Gati-1.0.0-debug.apk` | Install / test on Android |
+| `dist-mobile/Gati-1.0.0-release.apk` | Signed release APK |
+| `dist-mobile/Gati-1.0.0-release.aab` | **Play Store** upload |
+| `ios/App/` | Xcode project → Archive → App Store |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+See [`docs/MOBILE.md`](docs/MOBILE.md).
 
-## Deploy on Vercel
+## Documentation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Doc | Description |
+|-----|-------------|
+| [`docs/APP.md`](docs/APP.md) | **Full product documentation** — features, architecture, IA, prefs |
+| [`docs/BRAND.md`](docs/BRAND.md) | **Complete brand guidelines** |
+| [`docs/ASSETS.md`](docs/ASSETS.md) | Logo / icon / banner file inventory |
+| [`docs/MOBILE.md`](docs/MOBILE.md) | Android APK / iOS App Store packaging |
+| [`brand/`](brand/) | Export pack: SVG logos, PNG icons, marketing banners |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+In-app: **[/about](/about)** — product story for users (brand guidelines stay in `docs/`, not in the consumer UI).
+
+## Stack
+
+Next.js 16 · React 19 · TypeScript · Tailwind v4 · `nepali-date-converter` · custom panchang · Zustand
+
+## License
+
+Private / all rights reserved unless otherwise noted.
