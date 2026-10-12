@@ -9,7 +9,7 @@ import {
   LayoutGrid,
   Orbit,
   Settings,
-  Sparkles,
+  Stars,
   SunMoon,
 } from "lucide-react";
 import { GatiLogo } from "@/components/brand/GatiLogo";
@@ -25,7 +25,7 @@ const NAV = [
   { href: "/", label: "Home", labelNp: "गृह", icon: Home },
   { href: "/calendar/", label: "Patro", labelNp: "पात्रो", icon: CalendarDays },
   { href: "/cheena/", label: "Cheena", labelNp: "चिना", icon: Orbit },
-  { href: "/astro/", label: "Astro", labelNp: "ज्योतिष", icon: Sparkles },
+  { href: "/astro/", label: "Astro", labelNp: "ज्योतिष", icon: Stars },
   { href: "/more/", label: "More", labelNp: "थप", icon: LayoutGrid },
 ] as const;
 

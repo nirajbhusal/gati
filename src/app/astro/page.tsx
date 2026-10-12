@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AskAstro } from "@/components/astro/AskAstro";
 import { DailyAstroCard } from "@/components/astro/DailyAstroCard";
 import { Card } from "@/components/ui/Card";
 import { useProfile } from "@/lib/store/profile";
@@ -9,37 +10,44 @@ export default function AstroPage() {
   const profile = useProfile((s) => s.profile);
 
   return (
-    <div className="mx-auto max-w-2xl space-y-5">
-      <header>
-        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          Astro Advisor{" "}
-          <span className="np text-xl font-normal text-[var(--fg-muted)]">
-            ज्योतिष सल्लाह
-          </span>
-        </h1>
-        <p className="mt-1 text-sm text-[var(--fg-muted)]">
-          Calm daily guidance from today&apos;s panchang
-          {profile ? " and your Cheena" : ""} — not fear, not spam.
-        </p>
-      </header>
+    <div className="mx-auto max-w-2xl space-y-8 page-enter pb-6">
+      <AskAstro embedded />
 
-      <DailyAstroCard />
+      <section className="space-y-3">
+        <div className="flex items-end justify-between gap-3 px-0.5">
+          <div>
+            <h2 className="text-lg font-semibold tracking-tight">
+              Daily advisor{" "}
+              <span className="np text-sm font-normal text-[var(--fg-muted)]">
+                दैनिक सल्लाह
+              </span>
+            </h2>
+            <p className="mt-0.5 text-sm text-[var(--fg-muted)]">
+              Focus, caution, and intention from today’s panchang
+            </p>
+          </div>
+        </div>
+        <DailyAstroCard />
+      </section>
 
       {!profile && (
         <Card glass className="text-sm text-[var(--fg-muted)]">
           <p>
             Create a{" "}
-            <Link href="/cheena/new/" className="font-medium text-[var(--accent-indigo)] hover:underline">
+            <Link
+              href="/cheena/new/"
+              className="font-medium text-[var(--accent-indigo)] hover:underline"
+            >
               Digital Cheena
             </Link>{" "}
-            for personalized Moon/Lagna-aware advice and a cosmic profile.
+            so Ask Astro and Daily can speak with your Moon and Lagna.
           </p>
         </Card>
       )}
 
-      <Card className="text-xs text-[var(--fg-subtle)]">
-        Gati Astro is educational and cultural guidance. It does not replace a
-        qualified jyotishi, doctor, or financial advisor.
+      <Card className="text-xs leading-relaxed text-[var(--fg-subtle)]">
+        Gati Astro is cultural guidance woven from tithi and graha-gati. Invite a
+        qualified jyotishi for consequential life decisions.
       </Card>
     </div>
   );

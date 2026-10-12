@@ -5,12 +5,14 @@ import {
   Orbit,
   Settings,
   Sparkles,
+  Stars,
   User,
   Wrench,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 
 const LINKS = [
+  { href: "/astro/ask/", label: "Ask Astro", labelNp: "आकाश सोध्नुहोस्", icon: Stars, desc: "Illustrative cosmic readings" },
   { href: "/manifest/", label: "Manifest", labelNp: "इच्छा", icon: Bookmark, desc: "Digital wishlist of intentions" },
   { href: "/trust/", label: "Trust", labelNp: "विश्वास", icon: Orbit, desc: "Confidence in time & cosmos" },
   { href: "/tools/", label: "Utilities", labelNp: "उपकरण", icon: Wrench, desc: "BS ↔ AD and helpers" },

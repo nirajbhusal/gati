@@ -79,10 +79,10 @@ export function DailyAstroCard({ compact = false }: { compact?: boolean }) {
           <span className="np">({advice.moonRashiNp})</span>
         </p>
         <Link
-          href="/astro/"
+          href="/astro/ask/"
           className="inline-flex items-center gap-1 text-sm font-medium text-[var(--accent-indigo)] hover:underline underline-offset-4"
         >
-          Full advisor
+          Ask Astro
           <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       </div>
