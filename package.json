@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx tsx scripts/export-dashain-api.ts && next build",
+    "dashain:api": "npx tsx scripts/export-dashain-api.ts",
     "start": "next start",
     "lint": "eslint",
     "cap:sync": "npm run build && npx cap sync",

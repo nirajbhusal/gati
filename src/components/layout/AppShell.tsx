@@ -9,9 +9,11 @@ import {
   Home,
   LayoutGrid,
   Orbit,
-  PanelLeft,
+  PanelLeftClose,
+  PanelLeftOpen,
   Settings,
   ShieldCheck,
+  Sparkles,
   Sprout,
   Stars,
   SunMoon,
@@ -39,7 +41,7 @@ const SIDE_EXTRA = [
   { href: "/astro/", label: "Astro", labelNp: "ज्योतिष", icon: Stars },
   { href: "/manifest/", label: "Manifest", labelNp: "इच्छा", icon: Bookmark },
   { href: "/trust/", label: "Trust", labelNp: "विश्वास", icon: ShieldCheck },
-  { href: "/festivals/", label: "Festivals", labelNp: "चाडपर्व", icon: Stars },
+  { href: "/festivals/", label: "Festivals", labelNp: "चाडपर्व", icon: Sparkles },
   { href: "/settings/", label: "Settings", labelNp: "सेटिङ", icon: Settings },
 ] as const;
 
@@ -79,17 +81,22 @@ function ShellFrame({ children }: { children: React.ReactNode }) {
       <div className={cn("app-shell", collapsed && "is-collapsed")}>
         <aside className="side-nav" aria-label="Sections">
           <div className="side-brand">
-            <Link href="/" className="min-w-0" aria-label="Gati home">
-              <GatiLogo variant={collapsed ? "mark" : "lockup"} size={collapsed ? 32 : 30} />
+            <Link href="/" className="side-logo" aria-label="Gati home">
+              <GatiLogo variant={collapsed ? "mark" : "lockup"} size={collapsed ? 36 : 32} />
             </Link>
             <button
               type="button"
               className="side-collapse"
               aria-pressed={collapsed}
               aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+              title={collapsed ? "Show sidebar" : "Hide sidebar"}
               onClick={() => setCollapsed((v) => !v)}
             >
-              <PanelLeft className="h-4 w-4" />
+              {collapsed ? (
+                <PanelLeftOpen className="h-[18px] w-[18px]" />
+              ) : (
+                <PanelLeftClose className="h-[18px] w-[18px]" />
+              )}
             </button>
           </div>
           <nav className="side-links">

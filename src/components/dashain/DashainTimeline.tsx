@@ -50,50 +50,52 @@ export function DashainTimeline() {
         inSeason={timeline.inSeason}
       />
 
-      {/* Progress rail */}
-      <div className="dashain-rail overflow-x-auto pb-1">
-        <div className="flex min-w-max gap-1.5 px-0.5">
-          {timeline.days.map((d) => (
-            <button
-              key={d.content.id}
-              type="button"
-              onClick={() => {
-                setOpenId(d.content.id);
-                document
-                  .getElementById(`dashain-${d.content.id}`)
-                  ?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-              }}
-              className={cn(
-                "flex h-11 w-11 flex-col items-center justify-center rounded-2xl border text-[0.65rem] font-semibold transition",
-                d.isToday
-                  ? "border-[#c45c26] bg-[#c45c26] text-white shadow-[0_0_20px_rgba(196,92,38,0.45)]"
-                  : openId === d.content.id
-                    ? "border-[#d4a84b]/60 bg-[#d4a84b]/15 text-[#d4a84b]"
-                    : d.isPast
-                      ? "border-[var(--border)] bg-[var(--bg-muted)]/40 text-[var(--fg-subtle)]"
-                      : "border-[var(--border)] bg-[var(--bg-elevated)] text-[var(--fg-muted)] hover:border-[#c45c26]/40"
-              )}
-              aria-label={`Day ${d.content.day} ${d.content.nameEn}`}
-            >
-              <span>{d.content.day}</span>
-            </button>
-          ))}
-        </div>
+      <Garland />
+
+      <div className="dashain-rail -mx-1 flex gap-2 overflow-x-auto px-1 pb-1" aria-label="Dashain patro strip">
+        {timeline.days.map((d) => (
+          <button
+            key={d.content.id}
+            type="button"
+            onClick={() => {
+              setOpenId(d.content.id);
+              document
+                .getElementById(`dashain-${d.content.id}`)
+                ?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+            }}
+            className={cn(
+              "patro-bead",
+              d.isToday && "is-today",
+              openId === d.content.id && "is-active",
+              d.isPast && "is-past"
+            )}
+          >
+            <span className="text-[0.6rem] uppercase tracking-wide opacity-70">
+              {d.isToday ? "Today" : `D${d.content.day}`}
+            </span>
+            <span className="text-base font-semibold leading-none">{d.date.bs.day}</span>
+            <span className="np text-[0.62rem] opacity-80">
+              {d.content.nameNp.split(" ")[0]}
+            </span>
+          </button>
+        ))}
       </div>
 
-      {/* Vertical timeline */}
-      <ol className="relative space-y-3 border-l-2 border-[#c45c26]/25 pl-5 sm:pl-6">
+      <ul className="day-cards">
         {timeline.days.map((d) => (
-          <DayCard
-            key={d.content.id}
-            day={d}
-            open={openId === d.content.id}
-            onToggle={() =>
-              setOpenId((id) => (id === d.content.id ? null : d.content.id))
-            }
-          />
+          <li key={d.content.id} id={`dashain-${d.content.id}`}>
+            <DayCard
+              day={d}
+              open={openId === d.content.id}
+              onToggle={() =>
+                setOpenId((id) => (id === d.content.id ? null : d.content.id))
+              }
+            />
+          </li>
         ))}
-      </ol>
+      </ul>
+
+      <ShareBar yearBs={timeline.yearBs} />
 
       {active && (
         <p className="text-center text-xs text-[var(--fg-subtle)]">
@@ -107,6 +109,69 @@ export function DashainTimeline() {
         <span className="np mt-1 block">{DASHAIN_OVERVIEW.noteNp}</span>
       </Card>
     </div>
+  );
+}
+
+function Garland() {
+  return (
+    <svg viewBox="0 0 360 28" className="dashain-garland mx-auto w-full max-w-lg" aria-hidden>
+      <path d="M8 6 Q180 26 352 6" fill="none" stroke="currentColor" className="text-[#c45c26]/50" strokeWidth="1.2" />
+      {Array.from({ length: 11 }, (_, i) => {
+        const t = i / 10;
+        const x = 8 + t * 344;
+        const y = 6 + Math.sin(t * Math.PI) * 18;
+        return (
+          <circle
+            key={i}
+            cx={x}
+            cy={y}
+            r="4.2"
+            fill={i % 2 ? "#e6c36a" : "#c45c26"}
+          />
+        );
+      })}
+    </svg>
+  );
+}
+
+function ShareBar({ yearBs }: { yearBs: number }) {
+  const [copied, setCopied] = useState(false);
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const path = `${base}/api/dashain.json`;
+  const share = async () => {
+    const url = `${window.location.origin}${path}`;
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: `Bada Dashain ${yearBs}`,
+          text: "Gati Dashain timeline",
+          url,
+        });
+        return;
+      }
+    } catch {
+      /* fall through to copy */
+    }
+    await navigator.clipboard.writeText(url);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1600);
+  };
+  return (
+    <Card glass className="flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <p className="text-sm font-medium">Share this timeline</p>
+        <p className="mt-0.5 text-xs text-[var(--fg-subtle)]">
+          Public JSON API · <code className="text-[var(--accent-indigo)]">{path}</code>
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={share}
+        className="rounded-full bg-[var(--accent-indigo)] px-4 py-2 text-sm font-medium text-white"
+      >
+        {copied ? "Copied" : "Share API"}
+      </button>
+    </Card>
   );
 }
 
@@ -237,19 +302,7 @@ function DayCard({
   const gradient = c.highlight ? HIGHLIGHT_STYLE[c.highlight] : "";
 
   return (
-    <li id={`dashain-${c.id}`} className="relative">
-      <span
-        className={cn(
-          "absolute -left-[1.55rem] top-4 h-3.5 w-3.5 rounded-full border-2 sm:-left-[1.8rem]",
-          day.isToday
-            ? "border-[#c45c26] bg-[#c45c26] shadow-[0_0_12px_rgba(196,92,38,0.7)]"
-            : day.isPast
-              ? "border-[var(--border-strong)] bg-[var(--bg-muted)]"
-              : "border-[#d4a84b] bg-[var(--bg-elevated)]"
-        )}
-      />
-
-      <Card
+    <Card
         glass
         padding="none"
         className={cn(
@@ -370,7 +423,6 @@ function DayCard({
           </div>
         )}
       </Card>
-    </li>
   );
 }
 
